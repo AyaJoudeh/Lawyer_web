@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleLogin.css">
+    <link rel="icon" href="img/balance.png">
+
+    <title>تسجيل الدخول</title>
+</head>
+
+<body>
+    <% if (messages.error) { %>
+        <div id="error">
+            <p>
+                <%= messages.error  %>
+            </p>
+        </div>
+        <% } %>
+            <form action="api/auth/login" method="POST" id="loginForm">
+                <h3 id="greeting">اهلا بك في برنامج المحامي</h3>
+                <h3>تسجيل الدخول</h3>
+                <input type="text" name="username" id="username" placeholder="اسم المستخدم" dir="rtl" required />
+                <input type="password" name="password" id="password" placeholder="كلمة المرور" dir="rtl" required />
+                <button class="buttonLogin" type="submit">دخول</button>
+            </form>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="js/admin.js"></script>
+</body>
+
+</html>

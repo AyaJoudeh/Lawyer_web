@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case</title>
+    <link rel="icon" href="/imgs/balance.png" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/styleUser.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark " dir="rtl" style="background-color: #334257">
+        <div class="container-fluid" style="background-color: #334257">
+            <img class="imgUser" src=<%=user.profilePic%> alt="">
+
+            <a class="navbar-brand" href="#">
+                <%=user.lawyerName%>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown" dir="ltr">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/userCases?userId=<%=user._id%>" style="color: white;">القضايا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/userSessions?userId=<%=user._id%>" style="color: white;">الجلسات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-logout" href="/api/auth/logout" style="color: white;">
+                            <img src="/img/logout.png" class="imgLogout" alt="" srcset=""> تسجيل الخروج</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="page">
+        <h1>معلومات القضية</h1>
+        <hr style="margin-bottom:3%">
+
+        <div class="row">
+            <div class="col-xl-6 rowDetails">
+                <h4>رقم القضية:</h4>
+                <h6>
+                    <%= case1.caseNumber %>
+                </h6>
+            </div>
+
+            <div class="col-xl-6 rowDetails">
+                <h4>نوع القضية:</h4>
+                <h6>
+                    <%= case1.caseType %>
+                </h6>
+
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-xl-6 rowDetails">
+                <h4>تاريخ القضية:</h4>
+                <h6>
+                    <%= case1.caseDate.toISOString().split('T')[0].replaceAll('-', '/').split('/').reverse().join('/') %>
+                </h6>
+
+            </div>
+            <div class="col-xl-6 rowDetails">
+                <h4>المحكمة:</h4>
+                <h6>
+                    <%= case1.courtName %>
+                </h6>
+
+            </div>
+
+        </div>
+
+
+        <div class="row ">
+
+
+            <div class="col-xl-6 rowDetails">
+                <h4>اسم الموكل:</h4>
+                <h6>
+                    <%= case1.clientName %>
+                </h6>
+            </div>
+
+            <div class="col-xl-6 rowDetails">
+                <h4>صفة الموكل: </h4>
+                <h6>
+                    <%= case1.clientFeature %>
+                </h6>
+            </div>
+
+
+
+
+        </div>
+
+        <div class="row ">
+            <div class="col-xl-6 rowDetails">
+                <h4>رقم هاتف الموكل:</h4>
+                <h6>
+                    <%= case1.clientTelephone %>
+                </h6>
+
+            </div>
+
+            <div class="col-xl-6 rowDetails">
+                <h4>محامي المكتب:</h4>
+                <h6>
+                    <%= case1.clientLawyerName %>
+                </h6>
+            </div>
+
+
+
+
+
+        </div>
+        <div class="row ">
+            <div class="col-xl-6 rowDetails">
+                <h4>اسم الخصم: </h4>
+                <h6>
+                    <%= case1.opponentName %>
+                </h6>
+
+            </div>
+            <div class="col-xl-6 rowDetails">
+                <h4>رقم هاتف الخصم:</h4>
+                <h6>
+                    <%= case1.opponentTelephone %>
+                </h6>
+            </div>
+
+
+        </div>
+        <div class="row ">
+
+
+
+            <div class="col-xl-6 rowDetails">
+                <h4>صفة الخصم: </h4>
+                <h6>
+                    <%= case1.opponentFeature %>
+                </h6>
+
+
+            </div>
+
+            <div class="col-xl-6 rowDetails">
+                <h4>محامي الخصم:</h4>
+                <h6>
+                    <%= case1.opponentLawyerName %>
+                </h6>
+
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-xl rowDetails">
+                <h4>ملفات القضية</h4>
+                <ul style="list-style: none;">
+                    <% for(let i = 0; i < case1.files.length; i++) { %>
+                        <li>
+                            <a href="<%= case1.files[i]%>">
+                                <button class="btn btn-primary" style="margin-bottom: 1%;"><%= case1.files[i]%></button>
+                            </a>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <% if (!case1.isClosed && logUser.isAdmin) { %>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                    <a href="/closingCase/<%= case1._id %>">
+                        <button class="btn btn-danger">اغلاق القضية</button>
+                    </a>
+                </div>
+                <% } %>
+                    <% if (case1.isClosed) { %>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                            <a href="/retrievingCase/<%= case1._id %>">
+                                <button class="btn btn-danger">استعادة</button>
+                            </a>
+                        </div>
+                        <% } %>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-3.6.0.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+
+</body>
+
+</html>

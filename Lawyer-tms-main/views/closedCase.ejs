@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القضايا المفصولة</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/styleAdmin.css">
+    <link rel="icon" href="img/balance.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.css" />
+</head>
+
+<body>
+
+    <%- include('include/_sideBar') %>
+
+        <div class="col-xl-9 col-lg-8 col-md-7 col-sm-12 ">
+            <h3>القضايا المفصولة </h3>
+            <div class="addLawyer casesTable">
+                <div class="row" style="margin-left: 1%">
+                    <div class=" col" style="margin-bottom: 1%; margin-top: 1%;">
+                        <table class="table caption-top" id="closedCases">
+                            <thead>
+                                <tr>
+                                    <th scope="col">رقم القضية</th>
+                                    <th scope="col">نوع القضية</th>
+                                    <th scope="col">اسم المحامي</th>
+                                    <th scope="col">تاريخ الاغلاق</th>
+                                    <th scope="col">معلومات القضية</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(let i = 0; i < cases.length; i++) { %>
+                                    <% if(cases[i].isClosed === true) { %>
+                                        <tr>
+                                            <th scope="row">
+                                                <%= cases[i].caseNumber %>
+                                            </th>
+                                            <td>
+                                                <%= cases[i].caseType %>
+                                            </td>
+                                            <td>
+                                                <%= cases[i].clientLawyerName %>
+                                            </td>
+                                            <td>
+                                                <%= cases[i].updatedAt.toISOString().split('T')[0].replaceAll('-', '/').split('/').reverse().join('/') %>
+                                            </td>
+                                            <td><a href="caseDetails/<%= cases[i]._id %>"><button class="details"> تفاصيل</button></a></td>
+
+                                        </tr>
+                                        <% } %>
+                                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/vendor/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" defer></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#closedCases').DataTable({
+                    "aLengthMenu": [
+                        [5, 10, 25, -1],
+                        [5, 10, 25, "All"]
+                    ],
+                    "iDisplayLength": 5,
+
+                    "language": {
+                        "sProcessing": "جارٍ التحميل...",
+                        "sLengthMenu": "أظهر _MENU_ مدخلات",
+                        "sZeroRecords": "لم يعثر على أية سجلات",
+                        "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+                        "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                        "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                        "sInfoPostFix": "",
+                        "sSearch": "ابحث:",
+                        "sUrl": "",
+                        "oPaginate": {
+                            "sFirst": "الأول",
+                            "sPrevious": "السابق",
+                            "sNext": "التالي",
+                            "sLast": "الأخير"
+                        }
+                    },
+                    "columnDefs": [{
+                        "targets": 4,
+                        "searchable": false,
+                    }],
+                    "columnDefs": [{
+                        "targets": [1, 2, 4],
+                        'orderable': false,
+                    }]
+                });
+            });
+        </script>
+
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery-3.6.0.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/admin.js"></script>
+</body>
+
+</html>

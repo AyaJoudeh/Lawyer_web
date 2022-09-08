@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #efefef;
+    background-image: url(../img/LoginBackgrund.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.navbar-nav {
+    direction: rtl;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    margin-left: 2rem;
+    color: white;
+}
+
+.nav-link-logout {
+    margin-left: 0.5rem;
+}
+
+.imgUser {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.imgLogout {
+    height: 20px;
+    width: 20px;
+}
+
+.row {
+    padding: auto;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px;
+    overflow: auto;
+    direction: ltr;
+    width: 98%;
+    text-align: right;
+}
+
+h3 {
+    margin: 2%;
+    text-align: right;
+    color: #707070;
+}
+
+.addSession {
+    background-color: white;
+    color: #334257;
+    text-decoration: underline;
+}
+
+.labelInput {
+    display: inline;
+}
+
+.inputCase {
+    display: inline;
+    width: 2%;
+}

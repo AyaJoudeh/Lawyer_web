@@ -1,0 +1,44 @@
+<div class="row" dir="rtl">
+    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12">
+        <div id="side" class="sidebar hideSidebar" dir="rtl">
+            <div>
+                <div>
+                    <img src=<%=user.profilePic%> class="card-img-top" style="margin-right:15px;margin-top:10px;" />
+                    <h4 class="adminName">
+                        <%=user.lawyerName%>
+                    </h4>
+                </div>
+                <button id="btn" class="btnOpen hideBtnOpen"><svg xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-menu-2" width="35" height="35" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="18" x2="20" y2="18" />
+                </svg></button>
+                <!-- <hr> -->
+                <ul id="ulList" class="ulLink hideUlLink">
+                    <a href="../lawyers" class="liLink">
+                        <li><img src="../img/balance-icon.png" class="icon" /> محاميين
+                        </li>
+                    </a>
+                    <a href="../addLawyer" class="liLink">
+                        <li><img src="../img/add-user.png" class="icon" /> اضافة محامي</li>
+                    </a>
+                    <a href="../closedCase" class="liLink">
+                        <li><img src="../img/delete-folder.png" class="icon" /> القضايا المفصولة</li>
+                    </a>
+                    <a href="../addCase" class="liLink">
+                        <li>
+                            <img src="../img/add-file.png" class="icon" /> اضافة قضية
+                        </li>
+                    </a>
+                    <a href="api/auth/logout">
+                        <li class="logout">
+                            <img src="../img/logout.png" class="icon" /> تسجيل الخروج
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>

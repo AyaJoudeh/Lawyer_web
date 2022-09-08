@@ -1,0 +1,184 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url(../img/LoginBackgrund.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 27%;
+    height: 70%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+#error {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 6%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+p {
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+}
+
+#greeting {
+    color: #fff;
+    text-align: center;
+    margin-top: 20%;
+}
+
+h3 {
+    color: #fff;
+    text-align: center;
+    margin-top: 8%;
+}
+
+input[type="text"],
+[type="password"],
+[placeholder] {
+    position: absolute;
+    outline: none;
+    border: none;
+    width: 70%;
+    height: 8%;
+    border-bottom: 2px solid #334257;
+    background: none;
+    padding: 5px;
+    color: white;
+    font-size: 0.8rem;
+}
+
+input[type="text"] {
+    top: 37%;
+    left: 15%;
+}
+
+input[type="password"] {
+    top: 53%;
+    left: 15%;
+}
+
+::placeholder {
+    color: white;
+}
+
+.buttonLogin {
+    position: absolute;
+    top: 77%;
+    left: 50%;
+    width: 30%;
+    height: 8%;
+    transform: translate(-50%, -50%);
+    background: #334257;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+
+.buttonLogin:hover {
+    background: #fff;
+    color: #334257;
+}
+
+@media (max-width: 565px) {
+    form {
+        width: 60%;
+    }
+    #error {
+        width: 50%;
+    }
+}
+
+@media (min-width: 565px) and (max-width: 650px) {
+    form {
+        width: 48%;
+    }
+    #error {
+        width: 35%;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 710px) {
+    form {
+        width: 45%;
+    }
+    #error {
+        width: 35%;
+    }
+}
+
+@media (min-width: 710px) and (max-width: 840px) {
+    form {
+        width: 45%;
+    }
+    #error {
+        width: 35%;
+    }
+}
+
+@media (min-width: 840px) and (max-width: 1060px) {
+    form {
+        width: 35%;
+    }
+    #error {
+        width: 25%;
+    }
+}
+
+@media (min-width: 1240px) and (max-width: 1450px) {
+    form {
+        width: 30%;
+    }
+}
+
+@media (min-width: 1450px) and (max-width: 1800px) {
+    form {
+        width: 20%;
+    }
+    #error {
+        width: 15%;
+    }
+}
+
+@media (min-width: 1800px) {
+    form {
+        width: 18%;
+    }
+    #error {
+        width: 15%;
+    }
+}
+
+@media (min-height: 800px) {
+    form {
+        width: 25%;
+        height: 60%
+    }
+    #error {
+        width: 20%;
+    }
+}

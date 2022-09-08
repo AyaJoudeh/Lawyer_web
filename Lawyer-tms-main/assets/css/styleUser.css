@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #efefef;
+    background-image: url(../img/LoginBackgrund.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.navbar-nav {
+    direction: rtl;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    margin-left: 2rem;
+    color: white;
+}
+
+.nav-link-logout {
+    margin-left: 0.5rem;
+}
+
+.imgUser {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.imgLogout {
+    height: 20px;
+    width: 20px;
+}
+
+.row {
+    padding: auto;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px;
+    overflow: auto;
+    direction: rtl;
+    width: 98%;
+}
+
+.rowDetails {
+    margin-top: 4%;
+    text-align: center;
+}
+
+
+/* Style the search field / */
+
+form.example input[type="text"] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    width: 35%;
+    background: #f1f1f1;
+    border-radius: 20px 0px 0px 20px;
+    margin-top: 1%;
+    margin-right: 1%;
+    position: absolute;
+    left: 57%;
+}
+
+form.example input::placeholder {
+    font-size: medium;
+}
+
+
+/* / Style the submit button / */
+
+form.example button {
+    float: right;
+    width: 8%;
+    padding: 10px;
+    background: #334257;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 0px 20px 20px 0px;
+    margin-top: 1%;
+    margin-right: 1%;
+}
+
+form.example button:hover {
+    background: #334257;
+}
+
+
+/* Clear floats */
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.addSession {
+    background-color: white;
+    color: #334257;
+    text-decoration: underline;
+}
+
+.labelInput {
+    display: inline;
+}
+
+.inputCase {
+    display: inline;
+    width: 10%;
+}
+
+tr {
+    text-align: center;
+    text-decoration: none;
+}
+
+.page {
+    background-color: white;
+    width: 70%;
+    height: 40%;
+    direction: rtl;
+    text-align: center;
+    padding: 10px;
+    margin: 5% auto;
+    padding: 5%;
+    border: 3px solid #334257;
+}
+
+h6 {
+    display: inline-block;
+    margin-right: 2%;
+}
+
+h4 {
+    display: inline-block;
+    direction: rtl;
+    margin-top: 3%;
+    margin-right: 2%;
+    font-size: 1.2rem;
+}
+
+h3 {
+    margin: 2%;
+    text-align: right;
+    color: white;
+}

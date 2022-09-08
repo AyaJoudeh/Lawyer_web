@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اضافة محامي</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/styleAdmin.css">
+    <link rel="icon" href="/img/balance.png">
+</head>
+
+<body>
+
+    <%- include('include/_sideBar') %>
+
+        <div class="col-xl-8 col-lg-7 col-md-6 col-sm-8 ">
+            <h3>محامي جديد</h3>
+            <div class="addLawyer" id="newLaw">
+                <form action="/api/auth/register" method="POST" id="formLaw" enctype="multipart/form-data"><br>
+                    <label for="" class="lawyerLabel">اسم المحامي</label>
+                    <input type="text" name="lawyerName" id="lawyerName" class="form-control lawyerInput" required>
+                    <label for="" class="lawyerLabel">اسم المستخدم</label>
+                    <input type="text" name="username" id="username" class="form-control lawyerInput" required>
+
+                    <label for="" class="lawyerLabel">رقم الهاتف</label>
+                    <input type="text" name="telephoneNumber" id="telephoneNumber" class="form-control lawyerInput">
+                    <label for="" class="lawyerLabel">البريد الالكتروني</label>
+                    <input type="email" name="email" id="email" class="form-control lawyerInput" required>
+                    <label for="" class="lawyerLabel">كلمة المرور</label>
+                    <input type="password" name="password" id="password" class="form-control lawyerInput" required>
+                    <input type="checkbox" onclick="myFunction()" style="margin-left: 1%; margin-right: 2%;">اظهار كلمة المرور
+
+
+                    <label for="cars" class="lawyerLabel">دور المحامي</label>
+                    <select name="isAdmin" id="isAdmin" class="lawyerLabel" style="width: 60%;">
+                        <option value="true">Admin</option>
+                        <option value="false">User</option>
+                    </select>
+
+                    <label for="" class="lawyerLabel">اضافة صورة</label>
+                    <input type="file" accept="image/*" name="profilePic" id="profilePic" class="form-control lawyerInput"><br>
+                    <button type="submit" class="buttonAddLawyer" id="subLaw">اضافة</button>
+                </form>
+
+            </div>
+        </div>
+        </div>
+
+        <script src="js/admin.js"></script>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+
+</body>
+
+</html>

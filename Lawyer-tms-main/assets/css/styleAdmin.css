@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #eeeeee;
+    background-image: url(../img/LoginBackgrund.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.row {
+    padding: auto;
+    margin: auto;
+    height: 100%;
+}
+
+.rowCard {
+    margin-left: 5%;
+}
+
+.sidebar {
+    background-color: #334257;
+    padding: 3%;
+    margin: 5% 0;
+    height: 95vh;
+    width: 90%;
+    overflow: auto;
+    position: relative;
+}
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.card {
+    background-color: #ffffffd7;
+    padding: 5%;
+    margin-top: 10%;
+    text-align: center;
+    height: auto;
+    border-radius: 10px;
+    width: 90%;
+    box-shadow: 10px 10px 10px 10px #47607241;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 5%;
+    margin-right: 2%;
+    color: #707070;
+}
+
+.card-img-top {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+li {
+    color: white;
+    font-size: 1.2em;
+    list-style-type: none;
+    margin-top: 25px;
+}
+
+li:hover {
+    background-color: #5584ac;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.liLink {
+    text-decoration: none;
+}
+
+.icon {
+    width: 35px;
+    margin-left: 15px;
+}
+
+.adminName {
+    color: white;
+    font-size: 1em;
+    display: inline;
+    text-align: center;
+    margin-right: 2%;
+}
+
+.logout {
+    position: absolute;
+    bottom: 20px;
+}
+
+.addLawyer,
+.updateLawyer {
+    background-color: white;
+    width: 100%;
+    margin-top: 3%;
+    border-radius: 30px;
+    position: relative;
+}
+
+.lawyerLabel {
+    font-size: 1.5em;
+    margin: 2%;
+    width: 70%;
+    display: block;
+}
+
+.lawyerInput {
+    margin-right: 2%;
+    width: 60%;
+}
+
+.buttonAddLawyer {
+    padding: 18px;
+    margin: 3%;
+    border: none;
+    border-radius: 20px;
+    background-color: #334257;
+    color: white;
+    position: relative;
+    bottom: 1%;
+    right: 65%;
+}
+
+.buttonAddLawyer:hover {
+    background-color: white;
+    color: #334257;
+    border: 1px solid #334257;
+}
+
+.inputCase {
+    width: 40%;
+    display: inline;
+    margin: 1%;
+}
+
+.labelInput {
+    font-size: 1.1em;
+    margin: 1%;
+    width: 46%;
+}
+
+textarea {
+    margin-right: 2%;
+    width: 70%;
+}
+
+.buttonAddCase {
+    padding: 18px;
+    margin: 3%;
+    border: none;
+    border-radius: 20px;
+    background-color: #334257;
+    color: white;
+}
+
+.buttonAddCase:hover {
+    background-color: white;
+    color: #334257;
+    border: 1px solid #334257;
+}
+
+.details {
+    background-color: white;
+    color: #334257;
+    border: 2px solid #334257;
+    border-radius: 20px;
+    padding: 3%;
+}
+
+.details:hover {
+    background-color: #334257;
+    color: white;
+}
+
+
+/* Style the search field / */
+
+form.example input[type="text"] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    /* float: left; */
+    width: 35%;
+    background: #f1f1f1;
+    border-radius: 20px 0px 0px 20px;
+    margin-top: 4%;
+}
+
+form.example input::placeholder {
+    font-size: medium;
+}
+
+
+/* / Style the submit button / */
+
+form.example button {
+    float: right;
+    width: 10%;
+    padding: 10px;
+    background: #334257;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 0px 20px 20px 0px;
+    margin-top: 4%;
+}
+
+form.example button:hover {
+    background: #334257;
+}
+
+
+/* Clear floats */
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.casesTable {
+    max-height: 70%;
+    overflow: auto;
+}
+
+.hideBtnOpen {
+    display: none;
+}
+
+tr {
+    text-align: center;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .rowCard {
+        margin-left: 0%;
+    }
+    .sidebar {
+        width: 100%
+    }
+    .hideSidebar {
+        height: auto;
+    }
+    .hideUlLink {
+        display: none;
+    }
+    .hideBtnOpen {
+        background-color: #334257;
+        display: inline-block;
+        border: 1px solid white;
+        position: absolute;
+        left: 10%;
+        top: 35%;
+    }
+    .hideBtnOpen svg {
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .rowCard {
+        margin-right: 5%;
+        width: 100%;
+    }
+    .sidebar {
+        margin-right: 5%;
+        width: 110%;
+        height: 100%;
+    }
+    .hideBtnOpen {
+        display: none;
+    }
+    .hideUlLink {
+        display: block;
+    }
+}

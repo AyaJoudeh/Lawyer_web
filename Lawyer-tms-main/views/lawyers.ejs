@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحامين</title>
+    <link rel="icon" href="/img/balance.png">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/styleAdmin.css">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    /* body {
+        font-family: Arial, Helvetica, sans-serif;
+    } */
+    /* Float four columns side by side */
+    
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+    }
+    /* Remove extra left and right margins, due to padding in columns */
+    
+    .row {
+        margin: 0 -5px;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Style the counter cards */
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+    }
+    /* Responsive columns - one column layout (vertical) on small screens */
+    
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+<body>
+
+    <%- include('include/_sideBar') %>
+
+        <div class="col-xl-9 col-lg-9 col-md-8 col-sm-10">
+            <!-- <div class="row rowCard justify-content-around" id="cardRow" dir="rtl"> -->
+            <div class="row" dir="rtl">
+                <% for(let i = 0; i < lawyers.length; i++) { %>
+                    <% if((lawyers[i].isAdmin && (lawyers[i].lawyerName == user.lawyerName)) || !lawyers[i].isAdmin) { %>
+                        <!-- <div class="col-xl-3 col-lg-3 col-md-8 col-sm-10" id="order"> -->
+                        <div class="column">
+                            <div class="card">
+                                <img src=<%=lawyers[i].profilePic%> class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h4 class="card-text">
+                                        <%=lawyers[i].lawyerName%>
+                                    </h4>
+                                    <% if(lawyers[i].isAdmin) { %>
+                                        <p>Admin</p>
+                                        <% } else { %>
+                                            <p>User</p>
+                                            <% } %>
+                                </div>
+                                <div style="display: inline-block;">
+                                    <a href="/userCases?userId=<%=lawyers[i]._id%>">
+
+                                        <button class="btn btn-primary" style="background-color: #334257; "> <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-text" width="44" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                                            <line x1="9" y1="9" x2="10" y2="9" />
+                                            <line x1="9" y1="13" x2="15" y2="13" />
+                                            <line x1="9" y1="17" x2="15" y2="17" />
+                                        </svg></button>
+                                    </a>
+                                    <% if(!lawyers[i].isAdmin) { %>
+                                        <a href="api/users/updateUser/<%= lawyers[i]._id %>">
+                                            <button class="btn btn-success" style="background-color: #334257; ;"><svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-edit" width="20" height="20" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                                                <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                                                <line x1="16" y1="5" x2="19" y2="8" />
+                                            </svg></button>
+                                        </a>
+                                </div>
+
+                                <a href="api/users/deleteUser/<%=lawyers[i]._id %>">
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="border-radius: 75px; position: absolute; bottom: 80%; right: 83%; bottom:78%; background: none; border: none;  ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                     <line x1="4" y1="7" x2="20" y2="7" />
+                                     <line x1="10" y1="11" x2="10" y2="17" />
+                                     <line x1="14" y1="11" x2="14" y2="17" />
+                                     <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                     <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                   </svg>
+                                   </button>
+                                </a>
+                                <% } %>
+                            </div>
+                        </div>
+            </div>
+            <% } %>
+                <% } %>
+
+
+
+
+
+                    <script src="js/admin.js"></script>
+</body>
+
+</html>

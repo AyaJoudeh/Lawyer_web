@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعديل بيانات المحامي</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/styleAdmin.css">
+    <link rel="icon" href="/img/balance.png">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+</head>
+
+<body>
+
+    <div class="row" dir="rtl">
+        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-12">
+            <div id="side" class="sidebar hideSidebar" dir="rtl">
+                <a href="/userCases?userId=<%=user._id%>">
+                    <div>
+                        <img src=<%=user.profilePic%> class="card-img-top" style="margin-right:15px;margin-top:10px;" />
+                        <h4 class="adminName">
+                            <%=user.lawyerName%>
+                        </h4>
+                    </div>
+                </a>
+                <button id="btn" class="btnOpen hideBtnOpen"><svg xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-menu-2" width="35" height="35" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <line x1="4" y1="6" x2="20" y2="6" />
+                        <line x1="4" y1="12" x2="20" y2="12" />
+                        <line x1="4" y1="18" x2="20" y2="18" />
+                    </svg></button>
+                <!-- <hr> -->
+                <ul id="ulList" class="ulLink hideUlLink">
+                    <a href="/lawyers" class="liLink">
+                        <li><img src="/img/balance-icon.png" class="icon" /> محاميين
+                        </li>
+                    </a>
+                    <a href="/addLawyer" class="liLink">
+                        <li><img src="/img/add-user.png" class="icon" /> اضافة محامي</li>
+                    </a>
+                    <a href="/closedCase" class="liLink">
+                        <li><img src="/img/delete-folder.png" class="icon" /> القضايا المغلقة</li>
+                    </a>
+                    <a href="/addCase" class="liLink">
+                        <li>
+                            <img src="/img/add-file.png" class="icon" /> اضافة قضية
+                        </li>
+                    </a>
+                    <a href="api/auth/logout">
+                        <li class="logout">
+                            <img src="/img/logout.png" class="icon" /> تسجيل الخروج
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-xl-8 col-lg-7 col-md-6 col-sm-8 ">
+            <h3>تعديل بيانات المحامي</h3>
+            <div class="updateLawyer" id="newLaw">
+                <form action="/api/users/updateUser/<%= lawyer._id %>" method="POST" id="formLaw" enctype="multipart/form-data"><br>
+                    <label for="" class="lawyerLabel">اسم المحامي</label>
+                    <input type="text" value="<%= lawyer.lawyerName %>" name="lawyerName" id="lawyerName" class="form-control lawyerInput">
+                    <label for="" class="lawyerLabel">اسم المستخدم</label>
+                    <input type="text" value="<%= lawyer.username %>" name="username" id="username" class="form-control lawyerInput">
+
+                    <label for="" class="lawyerLabel">رقم الهاتف</label>
+                    <input type="text" value="<%= lawyer.telephoneNumber %>" name="telephoneNumber" id="telephoneNumber" class="form-control lawyerInput">
+                    <label for="" class="lawyerLabel">البريد الالكتروني</label>
+                    <input type="email" value="<%= lawyer.email %>" name="email" id="email" class="form-control lawyerInput">
+                    <label for="" class="lawyerLabel">كلمة المرور</label>
+                    <input type="password" value="" name="password" id="password" class="form-control lawyerInput" required>
+                    <input type="checkbox" onclick="myFunction()" style="margin-left: 1%; margin-right: 2%;">اظهار كلمة المرور
+
+                    <label for="cars" class="lawyerLabel">دور المحامي</label>
+                    <select name="isAdmin" id="isAdmin" class="lawyerLabel" style="width: 60%;">
+                        <option value="true" <%= lawyer.isAdmin === true ? "selected" : "" %>>Admin</option>
+                        <option value="false" <%= lawyer.isAdmin === false ? "selected" : "" %>>User</option>
+                    </select>
+
+                    <label for="" class="lawyerLabel">تعديل صورة</label>
+                    <input type="file" accept="image/*" name="profilePic" id="profilePic" class="form-control lawyerInput"><br>
+                    <button type="submit" class="buttonAddLawyer">تعديل</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/admin.js"></script>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+
+
+    <!-- <script>
+            document.getElementById('formLaw').addEventListener("submit", (event) => {
+                event.preventDefault();
+                Swal.fire(
+                    'تم الاضافة بنجاح',
+                    'You clicked the button!',
+                    'success'
+                )
+            });
+        </script> -->
+
+</body>
+
+</html>

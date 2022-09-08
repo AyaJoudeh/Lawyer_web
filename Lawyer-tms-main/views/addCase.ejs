@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اضافة قضية</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/styleAdmin.css" />
+    <link rel="icon" href="/img/balance.png" />
+</head>
+
+<body>
+
+    <%- include('include/_sideBar') %>
+
+        <div class="col-xl-8 col-lg-7 col-md-6 col-sm-8 ">
+            <h3>اضافة قضية</h3>
+            <div class="addLawyer">
+                <form action="/api/cases" method="POST" enctype="multipart/form-data" id="caseForm"><br>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">رقم القضية</label>
+                            <input type="text" name="caseNumber" id="caseNumber" class="form-control inputCase" required><br>
+
+                            <label for="" class="labelInput">نوع القضية</label>
+                            <input type="text" name="caseType" id="caseType" class="form-control inputCase" required>
+
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">تاريخ القضية</label>
+                            <input type="date" name="caseDate" id="caseDate" class="form-control inputCase" required>
+                            <br>
+                            <label for="" class="labelInput">المحكمة</label>
+                            <input type="text" name="courtName" id="courtName" class="form-control inputCase" required>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">اسم الموكل</label>
+                            <input type="text" name="clientName" id="clientName" class="form-control inputCase" required><br>
+                            <label for="" class="labelInput">صفة الموكل</label>
+                            <input type="text" name="clientFeature" id="clientFeature" class="form-control inputCase">
+
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">رقم هاتف الموكل</label>
+                            <input type="text" name="clientTelephone" id="clientTelephone" class="form-control inputCase"><br>
+                            <label for="" class="labelInput">اسم محامي المكتب</label>
+                            <input type="text" name="clientLawyerName" id="clientLawyerName" class="form-control inputCase" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">اسم الخصم &nbsp; &nbsp; &nbsp; &nbsp; </label>
+                            <input type="text" name="opponentName" id="opponentName" class="form-control inputCase">
+                            <br>
+                            <label for="" class="labelInput">صفة الخصم &nbsp; &nbsp; </label>
+                            <input type="text" name="opponentFeature" id="opponentFeature" class="form-control inputCase">
+                            <br>
+                            <label for="" class="labelInput">المصروفات</label>
+                            <input type="number" name="expenses" id="expenses" min="0" class="form-control inputCase">
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">رقم هاتف الخصم&nbsp; &nbsp;</label>
+                            <input type="text" name="opponentTelephone" id="opponentTelephone" class="form-control inputCase">
+                            <br>
+                            <label for="" class="labelInput">اسم محامي الخصم</label>
+                            <input type="text" name="opponentLawyerName" id="opponentLawyerName" class="form-control inputCase" required>
+
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="" class="labelInput">مستندات</label>
+                            <br>
+                            <input type="file" multiple accept="image/*,.pdf,.doc,.docx" name="files" id="files" class="form-control inputCase" style="width: 70%; margin-right: 2%;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="" class="labelInput" style="width: 23%;">ملاحظات</label><br>
+                            <textarea name="description" id="description" cols="90" rows="6"></textarea>
+
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="buttonAddCase">اضافة قضية</button>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery-3.6.0.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+
+        <script src="js/admin.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

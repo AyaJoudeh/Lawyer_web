@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/addCase2.css">
+    <link rel="icon" href="/img/balance.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark " dir="rtl" style="background-color: #334257">
+        <div class="container-fluid" style="background-color: #334257">
+            <img class="imgUser" src=<%=user.profilePic%> alt="">
+
+            <a class="navbar-brand" href="#">
+                <%=user.lawyerName%>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown" dir="ltr">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/userCases?userId=<%=user._id%>" style="color: white;">القضايا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/userSessions?userId=<%=user._id%>" style="color: white;">الجلسات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-logout" href="/api/auth/logout" style="color: white;">
+                            <img src="/img/logout.png" class="imgLogout" alt="" srcset=""> تسجيل الخروج</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h3>تعديل بيانات القضية</h3>
+        <div class="updateLawyer">
+            <form action="/api/cases/updateCase/<%= case1._id %>" method="POST" enctype="multipart/form-data" id="caseForm"><br>
+                <div class="row" dir="rtl">
+                    <div class="row" dir="rtl">
+                        <div class="col-xl-6" dir="rtl">
+                            <label for="" class="labelInput">رقم القضية</label>
+                            <input type="text" value="<%= case1.caseNumber %>" name="caseNumber" id="caseNumber" class="form-control1 inputCase"><br>
+
+                            <label for="" class="labelInput">نوع القضية</label>
+                            <input type="text" value="<%= case1.caseType %>" name="caseType" id="caseType" class="form-control1 inputCase">
+
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">تاريخ القضية</label>
+                            <input type="date" value="<%= case1.caseDate.toISOString().split('T')[0] %>" name="caseDate" id="caseDate" class="form-control1 inputCase">
+                            <br>
+                            <label for="" class="labelInput">المحكمة</label>
+                            <input type="text" value="<%= case1.courtName %>" name="courtName" id="courtName" class="form-control1 inputCase">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">اسم الموكل</label>
+                            <input type="text" value="<%= case1.clientName %>" name="clientName" id="clientName" class="form-control1 inputCase"><br>
+                            <label for="" class="labelInput">صفة الموكل</label>
+                            <input type="text" value="<%= case1.clientFeature %>" name="clientFeature" id="clientFeature" class="form-control1 inputCase">
+
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">رقم هاتف الموكل</label>
+                            <input type="text" value="<%= case1.clientTelephone %>" name="clientTelephone" id="clientTelephone" class="form-control1 inputCase"><br>
+                            <label for="" class="labelInput">اسم محامي المكتب</label>
+                            <input type="text" value="<%= case1.clientLawyerName %>" name="clientLawyerName" id="clientLawyerName" class="form-control1 inputCase">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">اسم الخصم &nbsp; &nbsp; &nbsp; &nbsp; </label>
+                            <input type="text" value="<%= case1.opponentName %>" name="opponentName" id="opponentName" class="form-control1 inputCase">
+                            <br>
+                            <label for="" class="labelInput">صفة الخصم &nbsp; &nbsp; </label>
+                            <input type="text" value="<%= case1.opponentFeature %>" name="opponentFeature" id="opponentFeature" class="form-control1 inputCase">
+                            <br>
+                            <label for="" class="labelInput">المصروفات</label>
+                            <input type="number" value="<%= case1.expenses %>" name="expenses" id="expenses" min="0" class="form-control1 inputCase">
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="" class="labelInput">رقم هاتف الخصم&nbsp; &nbsp;</label>
+                            <input type="text" value="<%= case1.opponentTelephone %>" name="opponentTelephone" id="opponentTelephone" class="form-control1 inputCase">
+                            <br>
+                            <label for="" class="labelInput">اسم محامي الخصم</label>
+                            <input type="text" value="<%= case1.opponentLawyerName %>" name="opponentLawyerName" id="opponentLawyerName" class="form-control1 inputCase">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="" class="labelInput">مستندات</label>
+                            <br>
+                            <input type="file" value="<%= case1.files %>" multiple accept="image/*,.pdf,.doc,.docx" name="files" id="files" class="form-control1 inputCase" style="width: 70%; margin-right: 2%;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="" class="labelInput" style="width: 23%;">ملاحظات</label><br>
+                            <textarea id="description" cols="90" rows="6"><%= case1.description %></textarea>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="buttonAddCase">تعديل</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-3.6.0.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+
+    <script src="js/admin.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- <script>
+            document.getElementById('caseForm').addEventListener("submit", (event) => {
+                event.preventDefault();
+                Swal.fire(
+                    'تم التعديل بنجاح',
+                    'You clicked the button!',
+                    'success'
+                )
+            });
+        </script> -->
+</body>
+
+</html>
